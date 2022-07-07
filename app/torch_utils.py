@@ -33,7 +33,7 @@ class NeuralNet(nn.Module):
 
 
 model = NeuralNet(input_size, hidden_size, num_classes)  # in the video, speaker is only using cpu for inference.
-model.load_state_dict(torch.load("app/mnist_fnn.pth"))  # now this should give error if the model is trained using GPU
+model.load_state_dict(torch.load("app/mnist_fnn.pth", map_location=torch.device('cpu')))  # now this should give error if the model is trained using GPU
 model.eval()
 
 
